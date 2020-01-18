@@ -1,0 +1,35 @@
+<mat-nav-list>
+  <a
+    *ngIf="isAuth | async"
+    mat-list-item
+    routerLink="/training"
+    (click)="OnSidenavClose()"
+  >
+    <mat-icon color="primary">fitness_center</mat-icon>
+    <span class="nav-caption" color="primary">Trainings</span>
+  </a>
+  <a
+    *ngIf="!(isAuth | async)"
+    mat-list-item
+    routerLink="/signup"
+    (click)="OnSidenavClose()"
+  >
+    <mat-icon color="primary">face</mat-icon>
+    <span class="nav-caption">Signup</span>
+  </a>
+  <a
+    *ngIf="!(isAuth | async)"
+    mat-list-item
+    routerLink="/login"
+    (click)="OnSidenavClose()"
+  >
+    <mat-icon color="primary">account_box</mat-icon>
+    <span class="nav-caption">Login</span>
+  </a>
+  <mat-list-item>
+    <button *ngIf="isAuth | async" mat-icon-button (click)="OnLogout()">
+      <mat-icon color="primary">eject</mat-icon>
+      <span class="nav-caption">Logout</span>
+    </button>
+  </mat-list-item>
+</mat-nav-list>

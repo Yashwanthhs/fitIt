@@ -1,0 +1,10 @@
+<mat-tab-group *ngIf="!(OngoingTarining | async)">
+  <mat-tab label="New Training">
+    <app-new-training></app-new-training>
+  </mat-tab>
+  <mat-tab label="Past Training">
+    <app-past-trainings></app-past-trainings>
+  </mat-tab>
+</mat-tab-group>
+
+<app-currenttraining *ngIf="OngoingTarining | async"></app-currenttraining>
